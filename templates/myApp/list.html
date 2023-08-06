@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  DemoClassWork
+{% endblock title %}
+{% block content %}
+
+<a href="{% url 'create' %}" class="btn btn-primary">Add New Record</a>
+<div>
+<table class="table table-striped" id = "stdtable">
+    <thead>
+      <tr>
+        <th scope="col">Student ID</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Remarks</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      {% for student in students %}
+        
+      <tr>
+        <th>{{student.id}}</th>
+        <td>{{student.name}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.dob}}</td>
+        <td>{{student.gender}}</td>
+        <td>{{student.remarks}}</td>
+        <td>
+          <a href="{% url 'details' student.id %}"><i class='fa fa-info-circle fa-x1'></i></a>
+          <a href="{% url 'edit' student.id %}"><i class='fa fa-edit fa-x1'></i></a>
+          <a onclick = "return confirm('Are you sure you want to delete this?')" href="#"><i class='fa fa-trash fa-x1'></i></a>
+        </td>
+       
+      </tr>
+      
+      {% endfor %}
+    </tbody>
+
+
+</table>
+
+{% endblock content %}
+</div>

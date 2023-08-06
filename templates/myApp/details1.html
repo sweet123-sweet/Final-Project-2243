@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %} {{ title }}{% endblock title %}
+
+
+{% block content %}
+<form>
+    <div class="mb-3">
+      <label for="" class="form-label">ID:</label>
+      {{ student.id }}  
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Name:</label>
+        {{ student.name }}  
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Email:</label>
+        {{ student.email }}  
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Date Of Birth:</label>
+        {{ student.dob }}  
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Remarks:</label>
+        {{ student.remarks }}  
+      </div>
+      <a href="{% url 'list' %}" class="btn btn-warning">Back To List</a>
+  </form>
+{% endblock content %}
+    
+    
